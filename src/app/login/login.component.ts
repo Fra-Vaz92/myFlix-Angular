@@ -34,7 +34,8 @@ export class LoginComponent  implements OnInit  {
     public dialogRef: MatDialogRef<LoginComponent>,
     private router: Router,
     public snackBar: MatSnackBar) { }
-  ngOnInit(): void {
+
+    ngOnInit(): void {
    
   }
 
@@ -50,6 +51,7 @@ export class LoginComponent  implements OnInit  {
      this.snackBar.open(`Login Successful, Hello ${result.user.Username}`, 'OK', {
         duration: 2000
      });
+    
      this.router.navigate(['movies']);
 
     }, (result) => {
