@@ -4,16 +4,24 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
 // This import brings in the API calls we created in 6.2
-import { FetchApiDataService } from '../fetch-api-data.service';
+import { UserLoginService } from '../fetch-api-data.service';
 
 // This import is used to display notifications back to the user
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { Router } from '@angular/router';
 
+//importend since error NG8001 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+
 
 @Component({
   selector: 'app-login',
+  imports: [FormsModule, ReactiveFormsModule, MatFormFieldModule, MatCardModule, MatInputModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -22,9 +30,9 @@ export class LoginComponent  implements OnInit  {
   @Input() userData = { Username: '', Password: '' };
 
   constructor(
-    public fetchApiData: FetchApiDataService,
+    public fetchApiData: UserLoginService,
     public dialogRef: MatDialogRef<LoginComponent>,
-    public router: Router,
+    private router: Router,
     public snackBar: MatSnackBar) { }
   ngOnInit(): void {
    
