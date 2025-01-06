@@ -5,6 +5,7 @@ import {
   GetUserDataService,
   RemoveFromFavoritesService,
 } from '../fetch-api-data.service';
+import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MovieDialogComponent } from '../movie-dialog/movie-dialog.component';
@@ -24,7 +25,8 @@ export class MovieCardComponent {
     public addToFavoritesService: AddToFavoritesService,
     public removeFromFavoritesService: RemoveFromFavoritesService,
     public dialog: MatDialog,
-    private snackBar: MatSnackBar 
+    private snackBar: MatSnackBar,
+    public router: Router
   ) {}
 
   ngOnInit(): void {

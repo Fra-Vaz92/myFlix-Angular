@@ -32,7 +32,7 @@ export class LoginComponent  implements OnInit  {
   constructor(
     public fetchApiData: UserLoginService,
     public dialogRef: MatDialogRef<LoginComponent>,
-    private router: Router,
+    public router: Router,
     public snackBar: MatSnackBar) { }
 
     ngOnInit(): void {
@@ -59,6 +59,6 @@ export class LoginComponent  implements OnInit  {
         duration: 2000
       });
     });
-    this.router.navigate(['welcome']);
+    this.router.navigate(['movies']);
   }
 }

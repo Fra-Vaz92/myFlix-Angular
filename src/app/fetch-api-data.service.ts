@@ -8,6 +8,7 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+
 //Declaring the api url that will provide data for the client app
 const apiUrl = 'https://movie-app-47zy.onrender.com/';
 
@@ -47,7 +48,7 @@ export class UserLoginService {
   public userLogin(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http
-      .post(apiUrl + `/login?username=${userDetails.username}&password=${userDetails.password}`, userDetails)
+      .post(apiUrl + 'login', userDetails)
       .pipe(catchError(this.handleError));
   }
   private handleError(error: HttpErrorResponse): any {

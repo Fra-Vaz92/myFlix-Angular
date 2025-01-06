@@ -10,6 +10,7 @@ import {
 import { MovieDialogComponent } from '../movie-dialog/movie-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-profile-view',
@@ -32,6 +33,7 @@ export class ProfileViewComponent implements OnInit {
     private formBuilder: FormBuilder,
     private deleteUserService: DeleteUserService,
     public dialog: MatDialog,
+    public router: Router,
     public removeFromFavoritesService: RemoveFromFavoritesService,
     private snackBar: MatSnackBar
   ) {

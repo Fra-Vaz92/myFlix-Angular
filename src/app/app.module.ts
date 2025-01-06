@@ -23,6 +23,7 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { MovieDialogComponent } from './movie-dialog/movie-dialog.component';
+import {provideClientHydration} from '@angular/platform-browser';
 
 
 
@@ -61,7 +62,7 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatProgressSpinnerModule,
   ],
-  providers: [provideAnimationsAsync()],
+  providers: [provideAnimationsAsync(), provideClientHydration() ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

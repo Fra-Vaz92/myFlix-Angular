@@ -4,7 +4,6 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'app-movie-dialog',
   standalone: false,
-
   templateUrl: './movie-dialog.component.html',
   styleUrl: './movie-dialog.component.scss',
 })
