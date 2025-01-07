@@ -9,9 +9,16 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MovieDialogComponent } from '../movie-dialog/movie-dialog.component';
+import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-movie-card',
+  imports: [MatIconModule, CommonModule, MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule],
   templateUrl: './movie-card.component.html',
   styleUrl: './movie-card.component.scss',
 })

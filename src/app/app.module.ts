@@ -24,6 +24,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { MovieDialogComponent } from './movie-dialog/movie-dialog.component';
 import {provideClientHydration} from '@angular/platform-browser';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -31,6 +33,7 @@ const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
   {path: 'profile', component: ProfileViewComponent},
+  {path: '**', component: PageNotFoundComponent},
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
 ];
 
@@ -61,6 +64,7 @@ const appRoutes: Routes = [
     MatIconModule,
     MatToolbarModule,
     MatProgressSpinnerModule,
+    CommonModule
   ],
   providers: [provideAnimationsAsync(), provideClientHydration() ],
   bootstrap: [AppComponent]
