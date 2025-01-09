@@ -10,7 +10,8 @@ import { map } from 'rxjs/operators';
 
 
 //Declaring the api url that will provide data for the client app
-const apiUrl = 'https://movie-app-47zy.onrender.com/';
+const apiUrl = 'https://movie-app-47zy.onrender.com/'; 
+
 
 @Injectable({
   providedIn: 'root',
@@ -135,7 +136,7 @@ export class GetDirectorService {
   public getDirector(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
-      .get(apiUrl + 'movies/director/:Name', {
+      .get(apiUrl + '/directors/:name', {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -163,7 +164,7 @@ export class GetGenreService {
   public getGenre(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
-      .get(apiUrl + 'movies/genre/:Name', {
+      .get(apiUrl + 'genre/:Name', {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),

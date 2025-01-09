@@ -2,11 +2,13 @@ import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
+
 
 
 @Component({
   selector: 'app-movie-dialog',
-  imports: [MatDialogModule, MatIconModule ],
+  imports: [MatDialogModule, MatIconModule, CommonModule ],
   templateUrl: './movie-dialog.component.html',
   styleUrl: './movie-dialog.component.scss',
 })
