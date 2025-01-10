@@ -107,7 +107,7 @@ export class MovieCardComponent {
             duration: 3000,
           });
         },
-        (error) => {
+        (error: any) => {
           console.error(`Error adding ${movie.Title} to favorites:`, error);
           this.snackBar.open(
             `Could not add ${movie.Title} to favorites.`,

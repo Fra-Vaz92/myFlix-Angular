@@ -26,6 +26,7 @@ import { MovieDialogComponent } from './movie-dialog/movie-dialog.component';
 import {provideClientHydration} from '@angular/platform-browser';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CommonModule } from '@angular/common';
+import { AddToFavoritesComponent } from './add-to-favorites/add-to-favorites.component';
 
 
 
@@ -45,7 +46,9 @@ const appRoutes: Routes = [
     WelcomePageComponent,
     MovieCardComponent,
     ProfileViewComponent,
-    MovieDialogComponent
+    MovieDialogComponent,
+    AddToFavoritesComponent,
+
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

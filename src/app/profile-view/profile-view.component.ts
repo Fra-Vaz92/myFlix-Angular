@@ -160,7 +160,7 @@ export class ProfileViewComponent implements OnInit {
           duration: 3000,
         });
       },
-      (error) => {
+      (error: any) => {
         this.snackBar.open(
           `Could not remove ${movie.Title} from favorites.`,
           'OK',
