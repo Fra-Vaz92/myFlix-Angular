@@ -2,6 +2,25 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
 
+
+## Installation
+
+1) **Install Dependencies**
+   Ensure you have Node.js (v20 or higher) and npm (v10 or higher) installed.
+```
+npm install
+```
+
+2) **Angular CLI** If you haven't installed Angular CLI:
+```
+npm install -g @angular/cli
+Add angular-cli-ghpages
+```
+3) Add Angular gh-pages
+```
+ng add angular-cli-ghpages
+```
+
 ## Development server
 
 To start a local development server, run:
