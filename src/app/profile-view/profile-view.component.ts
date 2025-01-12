@@ -63,6 +63,18 @@ export class ProfileViewComponent implements OnInit {
     });
   }
 
+    /**
+    * Method  to call getUserData API and making changes to user info
+    * The user can edit data, delete profile, remove from favorite, delete edit, save changes 
+    * @method getUserData
+    * @method editUserService
+    * @method saveChanges
+    * @method cancelEdit
+    * @method deleteProfile
+    * @method loadFavoriteMovies
+    * @method removeFromFavoritesService
+    */
+
   getUserData(): void {
     this.getUserDataService.getUserData().subscribe((resp: any) => {
       this.userData = resp;

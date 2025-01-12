@@ -71,15 +71,15 @@ export class GetAllMoviesService {
 export class AddToFavoritesService {
   constructor(private http: HttpClient) {}
 
-  public addToFavorites(movieId: string): Observable<any> {
+  public addToFavorites(movieID: string): Observable<any> {
     const token = getToken();
     const user = getUserData();
     const username = user?.Username;
     if (!token || !username) return throwError('User is not authenticated.');
     return this.http
       .post(
-        `${apiUrl}users/${username}/favorites`,
-        { movieId },
+        `${apiUrl}users/${username}/favorites/${movieID}`,
+        {},
         {
           headers: new HttpHeaders({ Authorization: `Bearer ${token}` }),
         }
@@ -115,13 +115,13 @@ export class GetUserDataService {
 export class RemoveFromFavoritesService {
   constructor(private http: HttpClient) {}
 
-  public removeFromFavorites(movieId: string): Observable<any> {
+  public removeFromFavorites(movieID: string): Observable<any> {
     const token = getToken();
     const user = getUserData();
     const username = user?.Username;
     if (!token || !username) return throwError('User is not authenticated.');
     return this.http
-      .delete(`${apiUrl}users/${username}/movies/${movieId}`, {
+      .delete(`${apiUrl}users/${username}/favorites/${movieID}`, {
         headers: new HttpHeaders({ Authorization: `Bearer ${token}` }),
       })
       .pipe(catchError(formatError));

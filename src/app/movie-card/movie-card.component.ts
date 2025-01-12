@@ -20,7 +20,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   selector: 'app-movie-card',
   imports: [MatIconModule, CommonModule, MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule],
   templateUrl: './movie-card.component.html',
-  styleUrl: './movie-card.component.scss',
+  styleUrls: ['./movie-card.component.scss'],
 })
 export class MovieCardComponent {
   movies: any[] = [];
@@ -41,6 +41,12 @@ export class MovieCardComponent {
     this.getFavoriteMovies(); // Fetch favorites on initialization
   }
 
+    /**
+    * Method  to call getMovies API and assign data to the movie List variable
+    * Assign favorite flag to the movie variable based on user data 
+    * @method getMovies 
+    */
+
   //get movies from the database
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
@@ -59,6 +65,12 @@ export class MovieCardComponent {
     });
   }
 
+    /**
+    * Method  to call AddToFavoritesService API and add movies to favorite list
+    * Assign favorite flag to the movie variable based on user data 
+    * @method getFavoriteMovies 
+    */
+
   getFavoriteMovies(): void {
     this.getUserDataService.getUserData().subscribe((resp: any) => {
       this.favoriteMovies = resp.FavoriteMovies || [];
@@ -71,16 +83,19 @@ export class MovieCardComponent {
     return this.favoriteMovies.includes(movie._id);
   }
 
+      /**
+    * Method  to call AddToFavoritesService API and add movies to favorite list with toggle action
+    * Assign favorite flag to the movie variable based on user data, remove favorite movies from the list
+    * @method getFavoriteMovies
+    * @method removeFromFavoritesService
+    */
+
   toggleFavorite(movie: any): void {
     if (this.isFavorite(movie)) {
-      // Remove from favorites
       this.removeFromFavoritesService.removeFromFavorites(movie._id).subscribe(
         () => {
           console.log(`${movie.Title} removed from favorites.`);
-          this.favoriteMovies = this.favoriteMovies.filter(
-            (id) => id !== movie._id
-          );
-          
+          this.favoriteMovies = this.favoriteMovies.filter((id) => id !== movie._id); // Ensure change detection
           this.snackBar.open(`${movie.Title} removed from favorites.`, 'OK', {
             duration: 3000,
           });
@@ -90,19 +105,15 @@ export class MovieCardComponent {
           this.snackBar.open(
             `Could not remove ${movie.Title} from favorites.`,
             'OK',
-            {
-              duration: 3000,
-            }
+            { duration: 3000 }
           );
         }
       );
     } else {
-      // Add to favorites
       this.addToFavoritesService.addToFavorites(movie._id).subscribe(
         () => {
           console.log(`${movie.Title} added to favorites.`);
-          this.favoriteMovies.push(movie._id);
-          
+          this.favoriteMovies = [...this.favoriteMovies, movie._id]; // Ensure change detection
           this.snackBar.open(`${movie.Title} added to favorites.`, 'OK', {
             duration: 3000,
           });
@@ -112,9 +123,7 @@ export class MovieCardComponent {
           this.snackBar.open(
             `Could not add ${movie.Title} to favorites.`,
             'OK',
-            {
-              duration: 3000,
-            }
+            { duration: 3000 }
           );
         }
       );

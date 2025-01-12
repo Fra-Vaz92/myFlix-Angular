@@ -41,6 +41,7 @@ export class LoginComponent  implements OnInit  {
 
   /**
    * Function to login user using FetchApiDataService
+   * @method FetchApiDataService = UserLoginService
    */
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe((result) => {
