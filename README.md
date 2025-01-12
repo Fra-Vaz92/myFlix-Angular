@@ -45,18 +45,18 @@ ng generate --help
 ```
 
 ## Key Features
-- Welcome View: Users can log in or register.
-- Movie Dashboard: Authenticated users can view a list of movies.
-- Single Movie View:
+- **Welcome View**: Users can log in or register.
+- **Movie Dashboard**: Authenticated users can view a list of movies.
+- **Single Movie View**:
   - A button to display movie summary.
   - A button to view director information.
   - A button to view genre details.
-- User Profile:
+- **User Profile**:
   - Update user information.
   - Deregister account.
-- Favorite Movies:
-    - Add or remove movies from favorites.
-    - Filter movies to show only favorites.
+- **Favorite Movies**:
+  - Add or remove movies from favorites.
+  - Filter movies to show only favorites.
 
 ## Building
 
