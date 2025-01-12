@@ -5,6 +5,9 @@ import { AppNavComponent } from './app-nav/app-nav.component';
 import { AppStorageService } from './app-storage.service';
 import { CommonModule } from '@angular/common';
 import { filter } from 'rxjs';
+import { LoginComponent } from './login/login.component';
+import { MatDialog } from '@angular/material/dialog';
+
 
 
 @Component({
@@ -16,7 +19,7 @@ import { filter } from 'rxjs';
 export class AppComponent {
   isUserLoggedIn = false;
 
-  constructor(public appStorage: AppStorageService, public router: Router) {
+  constructor(public appStorage: AppStorageService, public router: Router, public dialog: MatDialog) {
     router.events
       .pipe(filter((e) => e instanceof NavigationEnd))
       .subscribe((event) => {
@@ -29,7 +32,7 @@ export class AppComponent {
     this.isUserLoggedIn = this.appStorage.isUserLoggedIn();
   }
   // This is the function that will open the dialog for the login  
-  openuserloginDialog(): void {
+  openUserLoginDialog(): void {
       this.dialog.open(LoginComponent, {
   // Assigning the dialog a width
       width: '280px'
