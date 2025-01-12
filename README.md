@@ -12,9 +12,9 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+## Component generation
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Angular CLI includes powerful code tools. To generate a new component, run:
 
 ```bash
 ng generate component component-name
@@ -26,6 +26,20 @@ For a complete list of available schematics (such as `components`, `directives`,
 ng generate --help
 ```
 
+## Key Features
+- Welcome View: Users can log in or register.
+- Movie Dashboard: Authenticated users can view a list of movies.
+- Single Movie View:
+  - A button to display movie summary.
+  - A button to view director information.
+  - A button to view genre details.
+- User Profile:
+  - Update user information.
+  - Deregister account.
+- Favorite Movies:
+    - Add or remove movies from favorites.
+    - Filter movies to show only favorites.
+
 ## Building
 
 To build the project run:
@@ -36,23 +50,14 @@ ng build
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
+## Documentation
+TypeDoc are used for code documentation.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+To generate the documentation:
 ```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
+npx typedoc --out docs src/
 ```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Open the docs folder to view the generated API documentation.
 
 ## Additional Resources
 
