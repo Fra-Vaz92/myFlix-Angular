@@ -14,7 +14,6 @@ npm install
 2) **Angular CLI** If you haven't installed Angular CLI:
 ```
 npm install -g @angular/cli
-Add angular-cli-ghpages
 ```
 3) Add Angular gh-pages
 ```
