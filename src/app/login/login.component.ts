@@ -32,14 +32,16 @@ export class LoginComponent  implements OnInit  {
   constructor(
     public fetchApiData: UserLoginService,
     public dialogRef: MatDialogRef<LoginComponent>,
-    private router: Router,
+    public router: Router,
     public snackBar: MatSnackBar) { }
-  ngOnInit(): void {
+
+    ngOnInit(): void {
    
   }
 
   /**
    * Function to login user using FetchApiDataService
+   * @method FetchApiDataService = UserLoginService
    */
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe((result) => {
@@ -50,6 +52,7 @@ export class LoginComponent  implements OnInit  {
      this.snackBar.open(`Login Successful, Hello ${result.user.Username}`, 'OK', {
         duration: 2000
      });
+    
      this.router.navigate(['movies']);
 
     }, (result) => {
@@ -57,6 +60,6 @@ export class LoginComponent  implements OnInit  {
         duration: 2000
       });
     });
-    this.router.navigate(['welcome']);
+    this.router.navigate(['movies']);
   }
 }

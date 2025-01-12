@@ -1,24 +1,32 @@
-// src/app/app.component.ts
 import { Component } from '@angular/core';
-import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
-import { LoginComponent } from './login/login.component';
-import { MatDialog } from '@angular/material/dialog';
+import {NavigationEnd, RouterModule, Router, RouterOutlet } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { AppNavComponent } from './app-nav/app-nav.component';
+import { AppStorageService } from './app-storage.service';
+import { CommonModule } from '@angular/common';
+import { filter } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
+  imports: [RouterModule, MatToolbarModule, RouterOutlet, AppNavComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'myFlix-Angular-client';
+  isUserLoggedIn = false;
 
-  constructor(public dialog: MatDialog) { }
-// This is the function that will open the dialog when the signup button is clicked  
-openUserRegistrationDialog(): void {
-    this.dialog.open(UserRegistrationFormComponent, {
-// Assigning the dialog a width
-    width: '280px'
-    });
+  constructor(public appStorage: AppStorageService, public router: Router) {
+    router.events
+      .pipe(filter((e) => e instanceof NavigationEnd))
+      .subscribe((event) => {
+        console.log('Route Changed', event);
+        this.getUserLoginStatus();
+      });
+  }
+
+  getUserLoginStatus() {
+    this.isUserLoggedIn = this.appStorage.isUserLoggedIn();
   }
   // This is the function that will open the dialog for the login  
   openuserloginDialog(): void {

@@ -9,6 +9,8 @@ import { UserRegistrationService } from '../fetch-api-data.service';
 
 // This import is used to display notifications back to the user
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+
 
 //importend since error NG8001 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,7 +32,9 @@ export class UserRegistrationFormComponent implements OnInit {
 constructor(
     public fetchApiData: UserRegistrationService,
     public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
-    public snackBar: MatSnackBar) { }
+    public snackBar: MatSnackBar,
+    private router: Router
+  ) { }
 
 ngOnInit(): void {
 }
@@ -44,6 +48,10 @@ registerUser(): void {
      this.snackBar.open(result, 'OK', {
         duration: 2000
      });
+
+             // redirect to the login page
+             this.router.navigate(['welcome']);
+
     }, (result: string) => {
       console.log(result);
       this.snackBar.open(result, 'OK', {
