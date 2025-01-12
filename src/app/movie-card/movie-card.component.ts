@@ -15,10 +15,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { AppStorageService } from '../app-storage.service';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 
 @Component({
   selector: 'app-movie-card',
-  imports: [MatIconModule, CommonModule, MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule],
+  imports: [MatIconModule, CommonModule, MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatGridListModule],
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss'],
 })
@@ -33,7 +36,8 @@ export class MovieCardComponent {
     public removeFromFavoritesService: RemoveFromFavoritesService,
     public dialog: MatDialog,
     private snackBar: MatSnackBar,
-    public router: Router
+    public router: Router,
+    public appStorage: AppStorageService 
   ) {}
 
   ngOnInit(): void {

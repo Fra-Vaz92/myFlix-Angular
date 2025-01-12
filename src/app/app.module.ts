@@ -26,6 +26,8 @@ import { MovieDialogComponent } from './movie-dialog/movie-dialog.component';
 import {provideClientHydration} from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { AddToFavoritesComponent } from './add-to-favorites/add-to-favorites.component';
+import { AppStorageService } from './app-storage.service';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 const appRoutes: Routes = [
@@ -64,7 +66,9 @@ const appRoutes: Routes = [
     MatIconModule,
     MatToolbarModule,
     MatProgressSpinnerModule,
-    CommonModule
+    CommonModule,
+    AppStorageService,
+    MatGridListModule
   ],
   providers: [provideAnimationsAsync(), provideClientHydration() ],
   bootstrap: [AppComponent]

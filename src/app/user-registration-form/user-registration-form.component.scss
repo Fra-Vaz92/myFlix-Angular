@@ -1,0 +1,51 @@
+mat-card {
+    width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    border: none;
+    box-shadow: none;
+  
+    mat-card-header {
+      text-align: center;
+  
+      mat-card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333; // Text color
+        margin-bottom: 5px;
+      }
+    }
+  
+    mat-card-content {
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+  
+        mat-form-field {
+          width: 100%;
+        }
+      }
+    }
+  
+    mat-card-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+  
+      button {
+        background-color: #007bff; // Blue color
+        color: #fff;
+        text-transform: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        border: none;
+  
+        &:hover {
+          background-color: #0056b3; // Darker blue for hover
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+  
