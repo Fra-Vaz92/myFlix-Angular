@@ -28,4 +28,11 @@ export class AppComponent {
   getUserLoginStatus() {
     this.isUserLoggedIn = this.appStorage.isUserLoggedIn();
   }
+  // This is the function that will open the dialog for the login  
+  openuserloginDialog(): void {
+      this.dialog.open(LoginComponent, {
+  // Assigning the dialog a width
+      width: '280px'
+      });
+    }
 }
