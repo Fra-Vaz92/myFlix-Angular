@@ -46,7 +46,7 @@
     <!-- Movies Grid -->
     <div *ngIf="!isLoading && favoriteMovies.length > 0" class="movies-grid">
         <mat-card *ngFor="let movie of favoriteMovies" class="movie-card">
-            <img [src]="movie.ImageUrl"
+            <img [src]="movie.ImagePath"
                 class="movie-image" />
             <mat-card-title>{{ movie.Title }}</mat-card-title>
             <mat-card-actions>

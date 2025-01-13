@@ -8,6 +8,10 @@ import { Router } from '@angular/router';
 export class AppStorageService {
   constructor(private router: Router) {}
 
+  private isLocalStorageAvailable(): boolean {
+    return typeof localStorage !== 'undefined';
+  }
+
   getUserData(): UserDetails | null {
     const userDataFromStorage = localStorage.getItem('userData');
     if (userDataFromStorage) {
@@ -17,8 +21,11 @@ export class AppStorageService {
   }
 
   getToken(): string {
-    const token = localStorage.getItem('token');
-    return token ? token : '';
+    if (this.isLocalStorageAvailable()) {
+      const token = localStorage.getItem('token');
+      return token ? token : '';
+    }
+    return '';
   }
 
   isUserLoggedIn(): boolean {
@@ -31,11 +38,15 @@ export class AppStorageService {
   }
 
   setToken(token: string): void {
-    localStorage.setItem('token', token);
+    if (this.isLocalStorageAvailable()) {
+      localStorage.setItem('token', token);
+    }
   }
 
   logoutUser(): void {
-    localStorage.clear();
+    if (this.isLocalStorageAvailable()) {
+      localStorage.clear();
+    }
     this.router.navigate(['/welcome']);
   }
 }
